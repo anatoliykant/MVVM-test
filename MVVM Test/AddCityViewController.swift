@@ -19,6 +19,9 @@ class AddCityViewController: UIViewController {
   var viewModel: showCityPopulateViewModelProtocol? {
     didSet {
       viewModel?.sortCities()
+      self.viewModel?.citiesDidChange = { model in
+        citiesModel = model.cities!
+      }
     }
   }
   

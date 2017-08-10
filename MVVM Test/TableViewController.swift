@@ -10,7 +10,13 @@ import UIKit
 
 class TableViewController: UITableViewController {
   
-  var viewModel: showCityPopulateViewModelProtocol!
+  var viewModel: showCityPopulateViewModelProtocol! {
+    didSet {
+      self.viewModel.citiesDidChange = { model in
+        citiesModel = model.cities!
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
